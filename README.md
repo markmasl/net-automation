@@ -2,7 +2,7 @@
 BUILDING NETWORK AUTOMATION SOLUTIONS online training
 
 The virtual environment is running on EVE-NG, which stands for Emulated Virtual Environment fo Network, Security and DevOps Professtionals.
-Environment is built out of 7 network virtual appliances. Naming:
+Environment is built out of 6 network virtual appliances. Naming:
 1. Two IOS-XRv boxes as a DC gateways, running vrf's with BGP towards border leaves in each vrf.
 2. A pair of Arista vEOS border leaves, running mc-lag. Which are connecting to DC GWs and some hosts on the downlinks. In the starting version of the lab, there is only one Cumulus host, but there is a plan to add F5 BIGIP virtual appliance, as well as virtual Paloalto FW 
 3. A Cumulus virtual box, running as a host connecting to the mc-lag leaves. 
