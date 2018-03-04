@@ -1,0 +1,2 @@
+[arista]
+arista-mgmt	ansible_user=bman	ansible_password=63021515

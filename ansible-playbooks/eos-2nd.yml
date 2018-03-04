@@ -1,0 +1,13 @@
+---
+- hosts: arista
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: Check version of the system
+    eos_command:
+      commands: 'show version'
+      provider: 
+        username: bman
+        password: 63021515
+        authorize: yes
+        transport: cli

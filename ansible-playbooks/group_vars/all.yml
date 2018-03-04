@@ -1,0 +1,6 @@
+# group_vars/all.yaml
+eos_connection:
+  host: "{{ inventory_hostname }}"
+  username: bman
+  password: 63021515
+  transport: cli

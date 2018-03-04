@@ -1,0 +1,13 @@
+---
+- name: Show system configuration
+  hosts: arista
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: show version
+      eos_command:
+        commands: 'show version'
+        username: bman
+        password: 63021515
+        transport: eapi
+        use_ssl: true
