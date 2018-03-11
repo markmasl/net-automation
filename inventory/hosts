@@ -1,6 +1,6 @@
 [dc-gw]
-dc-gw1 ansible_user=johny ansible_password=quest
-dc-gw2 ansible_user=johny ansible_password=quest
+dc-gw1  ansible_user=johny ansible_password=quest
+dc-gw2  ansible_user=johny ansible_password=quest
 [leaf]
-leaf1	ansible_user=johny	ansible_password=quest
-leaf2	ansible_user=johny	ansible_password=quest
+leaf1 ansible_user=johny  ansible_password=quest
+leaf2 ansible_user=johny	ansible_password=quest
