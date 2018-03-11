@@ -1,2 +1,6 @@
-[arista]
-arista-mgmt	ansible_user=bman	ansible_password=63021515
+[dc-gw]
+dc-gw1 ansible_user=johny ansible_password=quest
+dc-gw2 ansible_user=johny ansible_password=quest
+[leaf]
+leaf1	ansible_user=johny	ansible_password=quest
+leaf2	ansible_user=johny	ansible_password=quest
