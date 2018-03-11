@@ -34,7 +34,7 @@ router bgp {{local_bgp_asn}}
   address-family {{addr_fam}}
   neighbor {{neighbor_bgp_ip}}
    use neighbor-group {{neighbor_group_name}}
-   description {{device_description}}
+   description {{neighbor_bgp_description}}
    address-family {{addr_fam}}
     route-policy {{route_policy_name_in}} in
     route-policy {{route_policy_name_out}} out
