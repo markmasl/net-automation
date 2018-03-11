@@ -25,7 +25,7 @@ router bgp {{local_bgp_asn}}
   bfd multiplier 4
   bfd minimum-interval 150
   graceful-restart
-  address-family ipv4 unicast
+  address-family {{addr_fam}}
    send-community-ebgp
    soft-reconfiguration inbound always
 
