@@ -1,0 +1,20 @@
+---
+vrf_name: I
+addr_fam: "ipv4 unicast"
+import_route_target: "24921:769"
+export_route_target: "24921:769"
+interface_name: "Bundle-ether"
+vlan_id: 2701
+interface_description: "ASR5-r6leaf3-I"
+ip_address: "10.20.101.20"
+ip_mask: "255.255.255.232"
+local_bgp_asn: 24921
+session_group_name: "SG-LEAF-AS65102"
+remote_bgp_asn: 65102
+session_group_desciption: "LEAF-SW EBGP"
+neighbor_group_name: "NG-LEAF-AS65102"
+route_distinguisher: "24921:769"
+neighbor_bgp_ip: "10.20.101.21"
+neighbor_bgp_description: "leaf1"
+route_policy_name_in: "RP-AS65102-I-IN"
+route_policy_name_out: "RP-AS65102-I-OUT"
