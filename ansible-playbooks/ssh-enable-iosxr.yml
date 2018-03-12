@@ -1,0 +1,7 @@
+---
+- hostname: 
+  domain name: automation.org
+  ssh server: 
+      - v2
+        vrf default
+  crypto key generate rsa general-keys

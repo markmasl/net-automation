@@ -1,0 +1,5 @@
+{
+"hostname": "dc-gw1",
+"loopback": "10.20.191.251",
+"maxint": 100
+}
