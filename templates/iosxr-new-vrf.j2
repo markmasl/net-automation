@@ -16,29 +16,34 @@ interface {{intf.name}}\.{{intf.vlan}}
  encapsulation dot1q {{interface.vlan}}
 {% endfor %}
 {% endif %}
-
-router bgp {{local_bgp_asn}}
-
- session-group {{session_group_name}}
-  remote-as {{remote_bgp_asn}}
-  description {{session_group_desciption}}
-
- neighbor-group {{neighbor_group_name}}
-  use session-group {{session_group_name}}
+!
+router bgp {{bgp.local_asn}}
+{% if bgp.sg is defined %}
+ session-group {{bgp.sg.name}}
+  remote-as {{bgp.neighbor.remote_asn}}
+  description {{bgp.neighbor.desciption}}
+{% endif %}
+!
+{% if bgp.ng is defined %}
+ neighbor-group {{bgp.ng.name}}
+  use session-group {{bgp.sg.name}}
   bfd fast-detect
   bfd multiplier 4
   bfd minimum-interval 150
   graceful-restart
-  address-family {{addr_fam}}
+  address-family {{vrf.addr_fam}}
    send-community-ebgp
    soft-reconfiguration inbound always
-
- vrf {{vrf_name}}
-  rd {{route_distinguisher}}
-  address-family {{addr_fam}}
-  neighbor {{neighbor_bgp_ip}}
-   use neighbor-group {{neighbor_group_name}}
-   description {{neighbor_bgp_description}}
-   address-family {{addr_fam}}
-    route-policy {{route_policy_name_in}} in
-    route-policy {{route_policy_name_out}} out
+{% endif %}
+!
+vrf {{vrf.name}}
+  rd {{vrf.rd}}
+  address-family {{vrf.addr_fam}}
+{% if bgp.neighbor is defined %}
+  neighbor {{bgp.neighbor.ip}}
+   use neighbor-group {{bgp.ng.name}}
+   description {{bgp.neighbor.description}}
+   address-family {{vrf.addr_fam}}
+    route-policy {{rp.in}} in
+    route-policy {{rp.out}} out
+{% endif %}
