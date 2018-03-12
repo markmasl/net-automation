@@ -6,12 +6,15 @@ vrf {{vrf_name}}
   export route-target
    {{export_route_target}}
 
-interface {{interface_name}}\.{{vlan_id}}
- description {{interface_description}}
- vrf {{vrf_name}}
- ipv4 address {{ip_address}} {{ip_mask}}
- !
- encapsulation dot1q {{vlan_id}}
+{% if interface %}
+{% for intf in interface %}
+interface {{intf.name}}\.{{intf.vlan}}
+ description {{intf.description}}
+ vrf {{intf.vrf}}
+ ipv4 address {{interface.prefix | ipaddr('address')}} {{interface.prefix | ipaddr('netmask')}}
+ encapsulation dot1q {{interface.vlan}}
+{% endfor %}
+{% endif %}
 
 router bgp {{local_bgp_asn}}
 
