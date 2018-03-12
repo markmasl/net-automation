@@ -5,6 +5,7 @@ import_route_target: "24921:769"
 export_route_target: "24921:769"
 interface:
     - name: "Bundle-ether91"
+      vrf: I
       prefix: 10.20.101.20/31
       description: "ASR5-leaf1-I"
       vlan: 2701
