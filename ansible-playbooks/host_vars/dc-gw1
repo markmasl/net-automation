@@ -2,21 +2,26 @@
 vrf: 
     - name: I
       addr_fam: "ipv4 unicast"
-      import_rt: "24921:769"
-      export_rt: "24921:769"
+      import_rt: "65921:769"
+      export_rt: "65921:769"
+      rd: "65921:769"
 interface:
     - name: "Bundle-ether91"
       vrf: I
       prefix: 10.20.101.20/31
       description: "ASR5-leaf1-I"
       vlan: 2701
-local_bgp_asn: 24921
-session_group_name: "SG-LEAF-AS65102"
-remote_bgp_asn: 65102
-session_group_desciption: "LEAF-SW EBGP"
-neighbor_group_name: "NG-LEAF-AS65102"
-route_distinguisher: "24921:769"
-neighbor_bgp_ip: "10.20.101.21"
-neighbor_bgp_description: "leaf1"
-route_policy_name_in: "RP-AS65102-I-IN"
-route_policy_name_out: "RP-AS65102-I-OUT"
+bgp:
+    - local_asn: 65921
+      neighbor:
+           - ip: 10.20.101.21
+             remote_asn: 65102
+             description: leaf1
+      sg:
+           - name: "SG-LEAF-AS65102"
+             description: "LEAF-SW EBGP"
+      ng:
+           - name: "NG-LEAF-AS65102"
+rp:
+    - in: "RP-AS65102-I-IN"
+      out: "RP-AS65102-I-OUT
