@@ -1,12 +1,13 @@
-vrf {{vrf_name}}
- address-family {{addr_fam}}
+{% if vrf is defined %}
+vrf {{vrf.name}}
+ address-family {{vrf.addr_fam}}
   import route-target
-   {{import_route_target}}
+   {{vrf.import_rt}}
   !
   export route-target
-   {{export_route_target}}
-
-{% if interface %}
+   {{vrf.export_rt}}
+{% endif %}
+{% if interface is defined %}
 {% for intf in interface %}
 interface {{intf.name}}\.{{intf.vlan}}
  description {{intf.description}}
