@@ -3,11 +3,11 @@ vrf_name: I
 addr_fam: "ipv4 unicast"
 import_route_target: "24921:769"
 export_route_target: "24921:769"
-interface_name: "Bundle-ether"
-vlan_id: 2701
-interface_description: "ASR5-r6leaf3-I"
-ip_address: "10.20.101.20"
-ip_mask: "255.255.255.232"
+interface:
+    - name: "Bundle-ether91"
+      prefix: 10.20.101.20/31
+      description: "ASR5-leaf1-I"
+      vlan: 2701
 local_bgp_asn: 24921
 session_group_name: "SG-LEAF-AS65102"
 remote_bgp_asn: 65102
