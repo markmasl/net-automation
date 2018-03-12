@@ -1,8 +1,9 @@
 ---
-vrf_name: I
-addr_fam: "ipv4 unicast"
-import_route_target: "24921:769"
-export_route_target: "24921:769"
+vrf: 
+    - name: I
+      addr_fam: "ipv4 unicast"
+      import_rt: "24921:769"
+      export_rt: "24921:769"
 interface:
     - name: "Bundle-ether91"
       vrf: I
