@@ -1,0 +1,14 @@
+---
+vrf: rnc
+prefix: 10.63.76.0/29
+vlan_id: 3001
+interface:
+   - primary:
+         id: "TenGigE0/6/0/1"
+   - secondary:
+         id: "TenGigE0/1/0/15"
+route:
+   - addr_fam: "ipv4 unicast"
+     enode-om-description: "RV56_1/13412/eJuglaSEB-M"
+     enode-ucs-description: "RV56_1/13412/eJuglaSEB-U/C/S"
+     enode-description: "RV56_1/13412/eJuglaSEB"
