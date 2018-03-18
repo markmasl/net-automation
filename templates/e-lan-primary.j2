@@ -1,10 +1,14 @@
-interface {{interface.primary.id}}\.{{vlan_id}}
- vrf {{vrf}}
- ipv4 address {{transport_prefix|ipaddr(1)}}
- encapsulation dot1q 3001
+interface {{interface.primary.id}}.{{vlan_id}}
+vrf {{vrf}}
+ipv4 address {{transport_prefix|ipaddr(1)}}
+encapsulation dot1q {{vlan_id}}
 
+{% set host_mask = "32" %}
+{% set enode_cp = enodeb_prefix|ipaddr(3) %}
+{% set enode_up = enodeb_prefix|ipaddr(4) %}
 router static
 vrf {{vrf}}
 address-family {{route.addr_fam}}
-  {{enodeb_prefix|ipaddr(3)}} {{interface.primary.id}}\.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode-ucs-description}}
-   {{enodeb_prefix|ipaddr(4)}} {{interface.primary.id}}\.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode-om-description}}
+  {{enode_cp|ipaddr('address')}}/{{host_mask}} {{interface.primary.id}}.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode_ucs_description}}
+  {{enode_up|ipaddr('address')}}/{{host_mask}} {{interface.primary.id}}.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode_om_description}}
+
