@@ -1,6 +1,8 @@
 #BGP neighbors
 ---
-- address: 10.20.101.0
+neighbor:
+ 1:
+  address: 10.20.101.0
   description: dc-gw1
   asn: 65325
   state: present
@@ -10,13 +12,15 @@
    - 10.20.0.0/24
      10.20.1.0/24
      10.20.2.0/24
-- address: 10.20.101.4
+ 2:
+  address: 10.20.101.4
   description: dc-gw1
   asn: 65101
   state: down
   policy: RP-dc-gw
   vrf: A
-- address: 10.20.101.6
+ 3:
+  address: 10.20.101.6
   description: host
   asn: 64901
   state: absent
