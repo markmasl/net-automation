@@ -1,6 +1,7 @@
 ---
 vrf: rnc
-prefix: 10.63.76.0/29
+transport_prefix: 10.63.76.0/29
+enodeb_prefix: 10.61.76.0/29
 vlan_id: 3001
 interface:
    - primary:
