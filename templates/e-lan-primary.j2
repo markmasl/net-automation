@@ -1,10 +1,10 @@
 interface {{interface.primary.id}}\.{{vlan_id}}
  vrf {{vrf}}
- ipv4 address 
+ ipv4 address {{transport_prefix|ipaddr(1)}}
  encapsulation dot1q 3001
 
 router static
 vrf {{vrf}}
 address-family {{route.addr_fam}}
-  10.61.76.3/32 TenGigE0/6/0/1.3001 10.63.76.4 bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description RV56_1/13412/eJuglaSEB-U/C/S
-   10.61.76.4/32 TenGigE0/6/0/1.3001 10.63.76.4 bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description RV56_1/13412/eJuglaSEB-M
+  {{enodeb_prefix|ipaddr(3)}} {{interface.primary.id}}\.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode-ucs-description}}
+   {{enodeb_prefix|ipaddr(4)}} {{interface.primary.id}}\.{{vlan_id}} {{transport_prefix|ipaddr(4)}} bfd fast-detect minimum-interval 100 multiplier 4 tag 7 description {{route.enode-om-description}}
