@@ -1,0 +1,10 @@
+---
+- name: Collect IOS-XR Facts from devices. Save them to file
+  hosts: dc-gw
+  tasks:
+    - snmp_facts:
+        host: "{{ansible_host}}"
+        version: v2
+        community: 2018
+    - register: snmp
+    - debug: var=snmp.sdtout_lines 
