@@ -1,0 +1,11 @@
+---
+- name: Collect EOS Facts from devices. Save them to file
+  hosts: leaf
+  connection: local
+  tasks:
+  - eos_facts:
+      authorize: yes
+      gather_subset: all      
+    register: eosfacts_out
+  - copy:
+      content="{{ eosfacts_out | to_nice_json }}" dest="/opt/net-automation/eosfacts/{{inventory_hostname}}_eosfacts.json"   

@@ -1,0 +1,19 @@
+---
+- name: Collect IOS-XR Facts from devices. Save them to file
+  hosts: dc-gw
+  connection: local
+  vars:
+  - results: results
+  tasks:
+  - file: path={{results}} state=directory
+    run_once: true
+  - iosxr_facts:
+      gather_subset: all
+  - snmp_facts:
+      host: "{{ansible_host}}"
+      community: 2018
+      version: v2 
+  - lineinfile:
+      dest: "{{results}}/uptime.log"
+      regexp: "{{inventory_hostname}}"
+      line: "{{'%20s %8s'|format(inventory_hostname,ansible_sysuptime)}}"

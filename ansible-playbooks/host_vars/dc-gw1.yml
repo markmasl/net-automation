@@ -24,4 +24,4 @@ bgp:
            - name: "NG-LEAF-AS65102"
 rp:
     - in: "RP-AS65102-I-IN"
-      out: "RP-AS65102-I-OUT
+      out: "RP-AS65102-I-OUT"

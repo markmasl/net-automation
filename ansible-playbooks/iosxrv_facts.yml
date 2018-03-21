@@ -1,0 +1,10 @@
+---
+- name: Collect IOS-XR Facts from devices. Save them to file
+  hosts: dc-gw
+  connection: local
+  tasks:
+  - iosxr_facts:
+      gather_subset: all      
+    register: iosxrfacts_out
+  - copy:
+      content="{{ iosxrfacts_out | to_nice_yaml }}" dest="/opt/net-automation/iosxrfacts/{{inventory_hostname}}_iosxrfacts.yml"   
