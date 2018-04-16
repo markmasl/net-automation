@@ -1,0 +1,104 @@
+{
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.20.50.0", 
+            "10.20.50.2", 
+            "10.20.191.245", 
+            "10.254.239.7"
+        ], 
+        "ansible_interfaces": {
+            "2": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "2", 
+                "mac": "", 
+                "mtu": "1500", 
+                "name": "Null0", 
+                "operstatus": "up", 
+                "speed": "1500"
+            }, 
+            "3": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "3", 
+                "ipv4": [
+                    {
+                        "address": "10.20.50.0", 
+                        "netmask": "255.255.255.254"
+                    }
+                ], 
+                "mac": "500000030001", 
+                "mtu": "1514", 
+                "name": "GigabitEthernet0/0/0/0", 
+                "operstatus": "up", 
+                "speed": "1514"
+            }, 
+            "4": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "4", 
+                "ipv4": [
+                    {
+                        "address": "10.20.50.2", 
+                        "netmask": "255.255.255.254"
+                    }
+                ], 
+                "mac": "500000030002", 
+                "mtu": "1514", 
+                "name": "GigabitEthernet0/0/0/1", 
+                "operstatus": "up", 
+                "speed": "1514"
+            }, 
+            "5": {
+                "adminstatus": "down", 
+                "description": "", 
+                "ifindex": "5", 
+                "mac": "500000030003", 
+                "mtu": "1514", 
+                "name": "GigabitEthernet0/0/0/2", 
+                "operstatus": "down", 
+                "speed": "1514"
+            }, 
+            "6": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "6", 
+                "ipv4": [
+                    {
+                        "address": "10.254.239.7", 
+                        "netmask": "255.255.255.240"
+                    }
+                ], 
+                "mac": "500000030000", 
+                "mtu": "1514", 
+                "name": "MgmtEth0/0/CPU0/0", 
+                "operstatus": "up", 
+                "speed": "1514"
+            }, 
+            "8": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "8", 
+                "ipv4": [
+                    {
+                        "address": "10.20.191.245", 
+                        "netmask": "255.255.255.255"
+                    }
+                ], 
+                "mac": "", 
+                "mtu": "1500", 
+                "name": "Loopback0", 
+                "operstatus": "up", 
+                "speed": "1500"
+            }
+        }, 
+        "ansible_syscontact": "", 
+        "ansible_sysdescr": "Cisco IOS XR Software (Cisco IOS XRv Series),  Version 5.1.3[Default]\r\nCopyright (c) 2014 by Cisco Systems, Inc.", 
+        "ansible_syslocation": "Jelgava Test-lab", 
+        "ansible_sysname": "wan-gw1.automation.org", 
+        "ansible_sysobjectid": "1.3.6.1.4.1.9.1.613", 
+        "ansible_sysuptime": "795754"
+    }, 
+    "changed": false, 
+    "failed": false
+}

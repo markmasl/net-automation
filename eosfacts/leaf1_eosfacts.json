@@ -1,0 +1,157 @@
+{
+    "ansible_facts": {
+        "ansible_net_all_ipv4_addresses": [
+            "10.254.239.10", 
+            "10.20.101.1", 
+            "10.20.70.2", 
+            "10.20.70.0"
+        ], 
+        "ansible_net_all_ipv6_addresses": [], 
+        "ansible_net_config": "! Command: show running-config\n! device: leaf1 (vEOS, EOS-4.20.2.1F)\n!\n! boot system flash:/vEOS-lab.swi\n!\ntransceiver qsfp default-mode 4x10G\n!\nlogging buffered 512000 informational\n!\nhostname leaf1\nip domain-name automation.org\n!\nsnmp-server location Jelgava, Test-lab\nsnmp-server community 2018 ro\n!\nspanning-tree mode rapid-pvst\nno spanning-tree vlan 4094\n!\nno aaa root\n!\nusername bman privilege 15 secret sha512 $6$f4JgKsOU.ckaj1O8$gIB/5uBzJ1jF3Le6NX18/T4Io2oHwCzhL6jSPmrgxxYIR1Oi3/IumneYUIlhcxrue.8DIkHUXh2cdDO7qWpTg/\nusername johny privilege 15 secret sha512 $6$9z5h0uyGNHJvNKNX$uuzkd2iMNM0L2rENJDzlaWEcB7WXvqSwZH.eM56P4jSs0T0GmEd2lxX1R6fOByzoKnNGS6BE0E9ZzXS1JBRqg.\n!\nvlan 2701\n   name leaf-vrfA\n!\nvlan 2702\n   name gw1-vrfA\n!\nvlan 4094\n   trunk group MLAGPEER\n!\nvrf definition A\n!\ninterface Ethernet1\n   switchport trunk allowed vlan 2701,4094\n   switchport mode trunk\n   switchport trunk group MLAGPEER\n!\ninterface Ethernet2\n!\ninterface Ethernet3\n   switchport trunk allowed vlan 2702\n   switchport mode trunk\n!\ninterface Ethernet4\n!\ninterface Ethernet5\n!\ninterface Management0\n   ip address dhcp\n!\ninterface Management1\n   ip address dhcp\n!\ninterface Vlan2701\n   vrf forwarding A\n   ip address 10.20.70.0/31\n!\ninterface Vlan2702\n   vrf forwarding A\n   ip address 10.20.70.2/31\n!\ninterface Vlan4094\n   mtu 9214\n   no autostate\n   ip address 10.20.101.1/30\n!\nip route 0.0.0.0/0 10.254.239.1 name default-mgmt-gw\nip route 10.99.99.0/24 10.254.239.1 name ansible-host\n!\nip routing\nip routing vrf A\n!\nmlag configuration\n   domain-id MLAG1\n   local-interface Vlan4094\n   peer-address 10.20.101.2\n   peer-link Ethernet1\n   reload-delay 60\n!\nmanagement api http-commands\n   no shutdown\n!\nend", 
+        "ansible_net_filesystems": [
+            "file:", 
+            "flash:", 
+            "system:"
+        ], 
+        "ansible_net_fqdn": "leaf1.automation.org", 
+        "ansible_net_gather_subset": [
+            "hardware", 
+            "default", 
+            "interfaces", 
+            "config"
+        ], 
+        "ansible_net_hostname": "leaf1", 
+        "ansible_net_image": "flash:/vEOS-lab.swi", 
+        "ansible_net_interfaces": {
+            "Ethernet1": {
+                "bandwidth": 0, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {}, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:01", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "bridged"
+            }, 
+            "Ethernet2": {
+                "bandwidth": 0, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {}, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:02", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "bridged"
+            }, 
+            "Ethernet3": {
+                "bandwidth": 0, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {}, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:03", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "bridged"
+            }, 
+            "Ethernet4": {
+                "bandwidth": 0, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {}, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:04", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "bridged"
+            }, 
+            "Ethernet5": {
+                "bandwidth": 0, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {}, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:05", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "bridged"
+            }, 
+            "Management1": {
+                "bandwidth": 1000000000, 
+                "description": "", 
+                "duplex": "duplexFull", 
+                "ipv4": {
+                    "address": "10.254.239.10", 
+                    "masklen": 27
+                }, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:01:00:00", 
+                "mtu": 1500, 
+                "operstatus": "connected", 
+                "type": "routed"
+            }, 
+            "Vlan2701": {
+                "bandwidth": 0, 
+                "description": "", 
+                "ipv4": {
+                    "address": "10.20.70.0", 
+                    "masklen": 31
+                }, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:d7:ee:0b", 
+                "mtu": 1500, 
+                "operstatus": "connected", 
+                "type": "routed"
+            }, 
+            "Vlan2702": {
+                "bandwidth": 0, 
+                "description": "", 
+                "ipv4": {
+                    "address": "10.20.70.2", 
+                    "masklen": 31
+                }, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:d7:ee:0b", 
+                "mtu": 1500, 
+                "operstatus": "connected", 
+                "type": "routed"
+            }, 
+            "Vlan4094": {
+                "bandwidth": 0, 
+                "description": "", 
+                "ipv4": {
+                    "address": "10.20.101.1", 
+                    "masklen": 30
+                }, 
+                "lineprotocol": "up", 
+                "macaddress": "50:00:00:d7:ee:0b", 
+                "mtu": 9214, 
+                "operstatus": "connected", 
+                "type": "routed"
+            }
+        }, 
+        "ansible_net_memfree_mb": 1554, 
+        "ansible_net_memtotal_mb": 2469, 
+        "ansible_net_model": "vEOS", 
+        "ansible_net_neighbors": {
+            "Ethernet1": [
+                {
+                    "host": "leaf2", 
+                    "port": "Ethernet1"
+                }
+            ], 
+            "Management1": [
+                {
+                    "host": "cumulus", 
+                    "port": "swp4"
+                }
+            ]
+        }, 
+        "ansible_net_serialnum": "", 
+        "ansible_net_version": "4.20.2.1F"
+    }, 
+    "changed": false, 
+    "failed": false
+}

@@ -1,0 +1,35 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Get LLDP neighbors
+    napalm_get_facts:
+      hostname: "{{ansible_host|default(inventory_hostname)}}"
+      username: "{{ansible_user}}"
+      password: "{{ansible_password}}"
+      dev_os: "{{ansible_os}}"
+      optional_args:
+        port: "{{api_port|default(ansible_port)|default(22)}}"
+      filter:
+      - facts
+      - interfaces_ip
+      - interfaces
+      - bgp_neighbors_detail
+    register: result
+
+  - name: Print napalm facts to log file
+    copy:
+      content: "{{result|to_nice_yaml}}"
+      dest: "/opt/net-automation/inventory/results/{{ansible_host}}-napalm-facts.log"
+
+#  - name: Print play_hosts variable and ansible_play_batch
+#    lineinfile:
+#      dest: "/opt/net-automation/inventory/results/variables.log"
+#      line: "{{'%20s %8s'|format(play_hosts,ansible_play_batch)}}"
+#    run_once: true
+
+  - name: Generate graph description file
+    template: src={{'/opt/net-automation/templates/testing-graph.j2'}} dest={{'/opt/net-automation/inventory/results/testing-network.dot'}}
+    run_once: true
+

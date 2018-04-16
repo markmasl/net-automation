@@ -1,0 +1,9 @@
+# Network administrators
+---
+users:
+ - username: cisco
+   password: cisco123
+   autocommand: enable
+ - username: operator
+   password: operator123
+   privilege: 15

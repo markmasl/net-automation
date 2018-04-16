@@ -1,0 +1,33 @@
+---
+- name: Gather general EOS device facts and create a report
+  hosts: leaf
+  connection: local
+  tasks:
+  - eos_facts:
+      authorize: yes
+      gather_subset: all
+    register: eosfacts_out
+- name: Gather general IOS-XR device facts and create a report
+  hosts: dc-gw
+  connection: local
+  tasks:
+  - iosxr_facts:
+      gather_subset: all
+    register: iosxrfacts_out
+- name: Gather general SNMP device facts and create a report
+  hosts: all
+  connection: local
+  tasks:
+  - snmp_facts:
+      host: "{{ ansible_host }}"
+      version: v2
+      community: 2018
+    register: snmpfacts_out
+- tasks:
+   copy: 
+     content: "{{eosfacts_out.stdout_lines}}" 
+     dest: "results/{{inventory_hostname}}_eosfacts.log"
+ 
+#  - lineinfile: 
+#      dest: "results/general_report.log"
+#      line: "{{'%10s %10s %10s %10s %10s'|format(ansible_net_hostname,ansible_net_model,ansible_net_version,ansible_sysuptime,ansible_net_memfree_mb,ansible_net_memtotal_mb)}}"

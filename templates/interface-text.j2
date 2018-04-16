@@ -1,0 +1,7 @@
+{% for host,facts in hostvars|dictsort %}
+{{host}}:
+{% 	for interface,parameters in facts.ansible_net_interfaces|dictsort %}
+{{		interface}}	{{parameters.description}}	{{parameters.operstatus}}	{{parameters.lineprotocol}}	{{parameters.type}}	{{parameters.mtu}}
+{% 	endfor %}
+
+{% endfor %}

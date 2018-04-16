@@ -1,0 +1,6 @@
+---
+- hostname: leaf1
+  loopback: 10.20.191.101
+  asn: 65101
+- interface: 
+   - name: Ethernet

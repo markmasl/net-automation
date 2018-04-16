@@ -1,0 +1,10 @@
+---
+- name: Get NAPALM facts and save the to file
+  connection: local
+  hosts: all
+  gather_facts: no
+  vars:
+  - results: "{{inventory_dir}}/results"
+  tasks:
+  - import_tasks: "read-napalm_facts.yml"
+

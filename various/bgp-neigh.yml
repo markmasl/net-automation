@@ -1,0 +1,6 @@
+---
+neighbors:
+ - { address: 10.20.101.0, description: dc-gw1, asn: 65325, policy: "RP_dc_gw", vrf: A, 
+     prefixes: [10.20.0.0/24, 10.20.1.0/24, 10.20.2.0/24], state: present }
+ - { address: 10.20.101.0, description: leaf4, asn: 65101, vrf: A, state: down }
+ - { address: 10.20.101.0, description: host, asn: 64901, vrf: A, state: absent } 

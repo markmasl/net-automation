@@ -1,0 +1,15 @@
+{% from 'format.j2' import hostname,shortname,ifname with context %}
+{% for local in play_hosts %}
+{%   set lname = hostvars[local].napalm_fqdn%}
+  "{{hostname(lname)}}"
+  "{{lname}}"
+{% endfor %}
+
+{% for vrf,as_id in napalm_bgp_neighbors_detail %}
+set aname = vrf
+"{{aname}}"
+set bname = as_id
+"{{bname}}"
+{% endfor %}
+
+

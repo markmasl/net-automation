@@ -1,0 +1,16 @@
+---
+- napalm_get_facts:
+    hostname: "{{ansible_host|default(inventory_hostname)}}"
+    username: "{{ansible_user}}"
+    dev_os: "{{ansible_os}}"
+    password: "{{ansible_password}}"
+    optional_args:
+      port: "{{api_port|default(ansible_port)|default(22)}}"
+    filter:
+      - lldp_neighbors_detail
+      - bgp_neighbors_detail
+#      - interfaces
+  register: result
+- copy:
+    content: "{{result|to_nice_yaml}}"
+    dest: "{{results}}/{{ansible_host}}-napalm-facts.log" 

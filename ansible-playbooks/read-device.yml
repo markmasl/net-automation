@@ -1,0 +1,13 @@
+---
+- snmp_facts:
+    host: "{{ansible_host}}"
+    version: v2
+    community: 2018
+- eos_facts:
+    authorize: yes
+    gather_subset: all
+  when: ansible_os == 'eos'
+- iosxr_facts:
+    gather_subset: all
+  when: ansible_os == 'iosxr'
+

@@ -1,0 +1,12 @@
+---
+- name: Collect EOS Facts from devices. Save them to file
+  hosts: leaf
+  connection: local
+  tasks:
+  - eos_facts:
+      authorize: yes
+      gather_subset: interfaces
+    register: eosfacts_out
+  - copy:
+      content="{{ eosfacts_out | to_nice_yaml(indent=100)}}" dest="/opt/net-automation/eosfacts/{{inventory_hostname}}_eosfacts_interfaces.yml"
+

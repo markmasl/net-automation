@@ -1,0 +1,10 @@
+---
+- name: Read data. Create report
+  connection: local
+  hosts: all
+  vars: 
+  - results: "{{inventory_dir}}/results"
+  tasks:
+  - import_tasks: "read-{{src|default('device')}}.yml"
+  - import_tasks: "report-{{src|default('uptime_device_j2')}}.yml"
+

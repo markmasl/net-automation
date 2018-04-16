@@ -1,0 +1,4 @@
+{% for host,facts in hostvars|dictsort %}
+{{facts.inventory_hostname}}:	{{facts.ansible_sysdescr}}
+				{{facts.ansible_sysuptime}}	{{facts.ansible_net_version}}	{{facts.ansible_net_memfree_mb}}	{{facts.ansible_net_memtotal_mb}}
+{% endfor %}

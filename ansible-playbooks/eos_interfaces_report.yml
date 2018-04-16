@@ -1,0 +1,16 @@
+---
+- name: Collect EOS Facts from devices. Save them to file
+  hosts: leaf
+  connection: local
+  vars:
+  - results: results
+  tasks:
+  - file: path={{results}} state=directory
+    run_once: true
+  - eos_facts:
+      authorize: yes
+      gather_subset: interfaces
+  - lineinfile:
+      dest: "{{results}}/eos_interface_report.log"
+#      regexp: "{{inventory_hostname}}"
+      line: "{{'%20s'|format(ansible_net_interfaces)}}"

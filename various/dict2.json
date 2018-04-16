@@ -1,0 +1,5 @@
+{
+"hostname": "dc-gw2",
+"loopback": "10.20.191.252",
+"interfaces": [ "GigabitEthernet0/0/0/0", "GigabitEthernet0/0/0/1", "GigabitEthernet0/0/0/2", "MgmtEth0/0/CPU0/0" ]
+}

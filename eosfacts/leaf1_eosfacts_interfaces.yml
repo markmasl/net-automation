@@ -1,0 +1,121 @@
+ansible_facts:
+  ansible_net_all_ipv4_addresses:
+  - 10.254.239.10
+  - 10.20.101.1
+  - 10.20.70.2
+  - 10.20.70.0
+  ansible_net_all_ipv6_addresses: []
+  ansible_net_fqdn: leaf1.automation.org
+  ansible_net_gather_subset:
+  - default
+  - interfaces
+  ansible_net_hostname: leaf1
+  ansible_net_image: flash:/vEOS-lab.swi
+  ansible_net_interfaces:
+    Ethernet1:
+      bandwidth: 0
+      description: to leaf2 eth1
+      duplex: duplexFull
+      ipv4: {}
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:01'
+      mtu: 9214
+      operstatus: connected
+      type: bridged
+    Ethernet2:
+      bandwidth: 0
+      description: ''
+      duplex: duplexFull
+      ipv4: {}
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:02'
+      mtu: 9214
+      operstatus: connected
+      type: bridged
+    Ethernet3:
+      bandwidth: 0
+      description: wan-gw1 gig0/0/0/1
+      duplex: duplexFull
+      ipv4: {}
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:03'
+      mtu: 9214
+      operstatus: connected
+      type: bridged
+    Ethernet4:
+      bandwidth: 0
+      description: ''
+      duplex: duplexFull
+      ipv4: {}
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:04'
+      mtu: 9214
+      operstatus: connected
+      type: bridged
+    Ethernet5:
+      bandwidth: 0
+      description: ''
+      duplex: duplexFull
+      ipv4: {}
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:05'
+      mtu: 9214
+      operstatus: connected
+      type: bridged
+    Management1:
+      bandwidth: 1000000000
+      description: ''
+      duplex: duplexFull
+      ipv4:
+        address: 10.254.239.10
+        masklen: 27
+      lineprotocol: up
+      macaddress: '50:00:00:01:00:00'
+      mtu: 1500
+      operstatus: connected
+      type: routed
+    Vlan2701:
+      bandwidth: 0
+      description: ''
+      ipv4:
+        address: 10.20.70.0
+        masklen: 31
+      lineprotocol: up
+      macaddress: 50:00:00:d7:ee:0b
+      mtu: 1500
+      operstatus: connected
+      type: routed
+    Vlan2702:
+      bandwidth: 0
+      description: ''
+      ipv4:
+        address: 10.20.70.2
+        masklen: 31
+      lineprotocol: up
+      macaddress: 50:00:00:d7:ee:0b
+      mtu: 1500
+      operstatus: connected
+      type: routed
+    Vlan4094:
+      bandwidth: 0
+      description: ''
+      ipv4:
+        address: 10.20.101.1
+        masklen: 30
+      lineprotocol: up
+      macaddress: 50:00:00:d7:ee:0b
+      mtu: 9214
+      operstatus: connected
+      type: routed
+  ansible_net_model: vEOS
+  ansible_net_neighbors:
+    Ethernet1:
+    - host: leaf2
+      port: Ethernet1
+    Management1:
+    - host: cumulus
+      port: swp4
+  ansible_net_serialnum: ''
+  ansible_net_version: 4.20.2.1F
+changed: false
+failed: false

@@ -8,8 +8,8 @@
   - file: path={{results}} state=directory
     run_once: true
   - iosxr_facts:
-      gather_subset: all
+      gather_subset: interfaces
   - lineinfile:
       dest: "{{results}}/interface_report.log"
-      regexp: "{{inventory_hostname}}"
-      line: "{{'%20s %8s'|format(ansible_net_interfaces,mtu)}}"
+#      regexp: "{{inventory_hostname}}"
+#      line: "{{'%20s %8s'|format(ansible_net_interfaces,mtu)}}"

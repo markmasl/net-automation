@@ -1,0 +1,100 @@
+{
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.20.101.2", 
+            "10.254.239.11"
+        ], 
+        "ansible_interfaces": {
+            "1": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "1", 
+                "mac": "500000020001", 
+                "mtu": "9214", 
+                "name": "Ethernet1", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "2": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "2", 
+                "mac": "500000020002", 
+                "mtu": "9214", 
+                "name": "Ethernet2", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "2004094": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "2004094", 
+                "ipv4": [
+                    {
+                        "address": "10.20.101.2", 
+                        "netmask": "255.255.255.252"
+                    }
+                ], 
+                "mac": "500000cb38c2", 
+                "mtu": "9214", 
+                "name": "Vlan4094", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "3": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "3", 
+                "mac": "500000020003", 
+                "mtu": "9214", 
+                "name": "Ethernet3", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "4": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "4", 
+                "mac": "500000020004", 
+                "mtu": "9214", 
+                "name": "Ethernet4", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "5": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "5", 
+                "mac": "500000020005", 
+                "mtu": "9214", 
+                "name": "Ethernet5", 
+                "operstatus": "up", 
+                "speed": "9214"
+            }, 
+            "999001": {
+                "adminstatus": "up", 
+                "description": "", 
+                "ifindex": "999001", 
+                "ipv4": [
+                    {
+                        "address": "10.254.239.11", 
+                        "netmask": "255.255.255.224"
+                    }
+                ], 
+                "mac": "500000020000", 
+                "mtu": "1500", 
+                "name": "Management1", 
+                "operstatus": "up", 
+                "speed": "1500"
+            }
+        }, 
+        "ansible_syscontact": "", 
+        "ansible_sysdescr": "Arista Networks EOS version 4.20.2.1F running on an Arista Networks vEOS", 
+        "ansible_syslocation": "Jelgava, Test-lab", 
+        "ansible_sysname": "leaf2", 
+        "ansible_sysobjectid": "1.3.6.1.4.1.30065.1.2759", 
+        "ansible_sysuptime": "90659"
+    }, 
+    "changed": false, 
+    "failed": false
+}

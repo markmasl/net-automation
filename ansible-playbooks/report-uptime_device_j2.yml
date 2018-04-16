@@ -1,0 +1,11 @@
+---
+- template:
+    src: "/opt/net-automation/templates/uptime-text.j2"
+    dest: "{{results}}/uptime.log"
+  vars:
+    allhosts: "{{hostvars}}"
+  run_once: true
+- copy:
+    content={{hostvars | to_nice_yaml}} dest={{results}}/variable-dump.log
+#- debug: var=hostvars
+#    msg: "The rabbit is: {{hostvars.stdout_lines}}"
