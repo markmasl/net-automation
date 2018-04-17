@@ -1,6 +1,4 @@
 [dc-gw]
-dc-gw1  ansible_user=johny ansible_password=quest
-dc-gw2  ansible_user=johny ansible_password=quest
+iosxr1 ansible_host=10.20.254.10 ansible_user=johny ansible_password=quest ansible_os=iosxr
 [leaf]
-leaf1 ansible_user=johny  ansible_password=quest
-leaf2 ansible_user=johny  ansible_password=quest
+eos1 ansible_host=10.20.254.7 ansible_user=johny ansible_password=quest ansible_os=eos api_port=443
