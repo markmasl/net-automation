@@ -3,7 +3,7 @@
   connection: local
   gather_facts: no
   tasks:
-  - name: Get LLDP neighbors
+  - name: Get BGP neighbors
     napalm_get_facts:
       hostname: "{{ansible_host|default(inventory_hostname)}}"
       username: "{{ansible_user}}"
